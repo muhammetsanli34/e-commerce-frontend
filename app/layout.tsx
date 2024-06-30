@@ -16,6 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+      </style>
       <body className={inter.className}>{children}</body>
     </html>
   );
