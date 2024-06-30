@@ -1,3 +1,4 @@
+"use client";
 import { ErrorContext } from "../FormBase";
 import style from "./style.module.scss";
 
