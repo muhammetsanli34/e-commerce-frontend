@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
+import AppHeader from "@/components/AppHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,10 @@ export default function RootLayout({
         @import
         url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
       </style>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AppHeader />
+        {children}
+        </body>
     </html>
   );
 }
