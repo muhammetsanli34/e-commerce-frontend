@@ -1,0 +1,13 @@
+.baseInput {
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+    height: $--site-form-input-height-base;
+    color: black;
+    border-radius: $--site-radius-default;
+    outline: none;
+    box-shadow: 0 0.0625rem 0.125rem rgba(2, 6, 23, 0.05);
+    width: 100%;
+    &:hover {
+        border-color: $--color-slate-400;
+    }
+}
