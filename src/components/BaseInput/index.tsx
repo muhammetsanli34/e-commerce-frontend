@@ -4,18 +4,31 @@ import style from "./style.module.scss";
 
 interface BaseInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
+  label?: string;
 }
 
 export default function BaseInput(props: BaseInputProps) {
   return (
     <ErrorContext.Consumer>
       {({ errors, values }) => (
-        <div className="flex flex-col">
+        <div
+          className={`${style.baseInputWrapper} ${
+            errors[props.name] ? "error" : ""
+          }`}
+        >
+          <label htmlFor={props.name} className={style.label}>
+            {props.label}
+          </label>
           <input
             {...props}
             className={`${style.baseInput} ${props.className ?? ""}`}
           />
-          ;<span className="text-red-500">{errors[props.name]}</span>
+          <span
+            className={style.error}
+            style={{ display: errors[props.name] ? "block" : "none" }}
+          >
+            {errors[props.name]}
+          </span>
         </div>
       )}
     </ErrorContext.Consumer>

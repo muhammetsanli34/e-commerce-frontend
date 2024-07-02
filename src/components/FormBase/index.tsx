@@ -33,7 +33,7 @@ export default function FormBase(props: FormBaseProps) {
   };
 
   return (
-    <form {...props} className="w-full" onSubmit={(e) => submit(e)}>
+    <form {...props} onSubmit={(e) => submit(e)}>
       <ErrorContext.Provider value={{ errors, values: props.values }}>
         {props.children}
       </ErrorContext.Provider>

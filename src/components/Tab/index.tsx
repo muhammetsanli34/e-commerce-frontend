@@ -1,4 +1,5 @@
 import React from "react";
+import style from "./style.module.scss";
 
 import TabsProvider, { useTabsContext } from "./TabsContext";
 
@@ -34,7 +35,7 @@ const Tabs: TabsWrapper & TabsComposition = ({ children }) => {
 Tabs.Titles = ({ items }) => {
   const { currentIndex, setCurrentIndex } = useTabsContext();
   return (
-    <div role="tablist">
+    <div role="tablist" className={style.tabTitles}>
       {items.map(({ id, title }, index) => (
         <button
           key={id}
@@ -45,6 +46,9 @@ Tabs.Titles = ({ items }) => {
           onClick={() => {
             setCurrentIndex(index);
           }}
+          className={`${style.tabButton} ${
+            currentIndex === index ? style.activeTabTitle : ""
+          }`}
         >
           {title}
         </button>
