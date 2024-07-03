@@ -18,6 +18,10 @@ export default function RegisterForm() {
         console.log("submit");
       }}
     >
+      <span className={style.infoText}>
+        There are many advantages to creating an account: the payment process is
+        faster, shipment tracking is possible and much more.
+      </span>
       <BaseInput
         type="text"
         name="
@@ -35,6 +39,11 @@ export default function RegisterForm() {
       <button type="submit" className={style.submitButton}>
         REGISTER
       </button>
+      <span className={style.infoText}>
+        Your personal data will be used to support your experience throughout
+        this website, to manage access to your account, and for other purposes
+        described in our privacy policy.
+      </span>
     </FormBase>
   );
 }

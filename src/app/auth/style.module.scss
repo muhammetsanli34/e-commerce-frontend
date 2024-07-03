@@ -13,3 +13,10 @@
     border-radius: $--site-radius-default;
     height: 2.875rem;   
 }
+
+.infoText {
+    font-size: $--site-label-size;
+    display: block;
+    margin: 1rem 0;
+    text-align: center;
+}
