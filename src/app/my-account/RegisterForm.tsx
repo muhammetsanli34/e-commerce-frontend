@@ -1,13 +1,13 @@
-"use server";
+"use client";
 
 import BaseInput from "@/src/components/BaseInput";
 import FormBase from "@/src/components/FormBase";
 import style from "./style.module.scss";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-import Swal from "sweetalert2";
+import authAction from "@/src/actions/auth";
+import { useRouter } from "next/navigation";
 
-export default async function RegisterForm() {
+export default function RegisterForm() {
+  const router = useRouter();
   const formValues = {
     username: "",
     name: "",
@@ -18,34 +18,15 @@ export default async function RegisterForm() {
     phone_number: "",
   };
 
-  const submit = async () => {
-    "use server";
-
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/register`,
-      {
-        method: "POST",
-        body: JSON.stringify(formValues),
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    if (response.ok) {
-      cookies().set("token", data.token);
-      redirect("/my-account");
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: data.message,
-      });
-    }
-  };
-
   return (
-    <FormBase rules="Register" values={formValues} submit={submit}>
+    <FormBase
+      rules="Register"
+      values={formValues}
+      submit={async () => {
+        await authAction("register", formValues);
+        router.refresh();
+      }}
+    >
       <span className={style.infoText}>
         There are many advantages to creating an account: the payment process is
         faster, shipment tracking is possible and much more.

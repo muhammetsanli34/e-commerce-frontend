@@ -1,46 +1,27 @@
-"use server";
+"use client";
 
 import BaseInput from "@/src/components/BaseInput";
 import FormBase from "@/src/components/FormBase";
 import style from "./style.module.scss";
-import { cookies } from "next/headers";
-import Swal from "sweetalert2";
-import { redirect } from "next/navigation";
+import authAction from "@/src/actions/auth";
+import { useRouter } from "next/navigation";
 
-export default async function LoginForm() {
+export default function LoginForm() {
+  const router = useRouter();
   const formValues = {
     username: "",
     password: "",
-  };
-
-  const submit = async () => {
-    "use server";
-    console.log("submitting form2");
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
-      method: "POST",
-      body: JSON.stringify(formValues),
-      headers: {
-        "content-type": "application/json",
-      },
-    });
-    const data = await response.json();
-    if (response.ok) {
-      cookies().set("token", data.token);
-      redirect("/my-account");
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: data.message,
-      });
-    }
   };
 
   return (
     <FormBase
       rules="Login"
       values={formValues}
-      submit={submit}
+      submit={async () => {
+        await authAction("login", formValues);
+        console.log("router", router);
+        window.location.reload();
+      }}
     >
       <span className={style.infoText}>
         If you have an account, sign in with your username or email address.

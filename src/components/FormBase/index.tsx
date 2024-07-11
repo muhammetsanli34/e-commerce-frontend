@@ -1,10 +1,9 @@
-// Ensure this file is marked as client-side
 "use client";
 
 import React from "react";
 import * as yup from "yup";
 
-interface FormBaseProps extends React.HTMLAttributes<HTMLFormElement> {
+interface FormBaseProps {
   rules?: string;
   children: React.ReactNode;
   submit: () => void;
@@ -31,15 +30,15 @@ export default function FormBase(props: FormBaseProps) {
     });
   }
 
-  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("submitting form", Rules, props.submit);
+  const submit = async () => {
+    "use client";
     if (!Rules) {
       return props.submit();
     }
     Rules.validate(props.values, { abortEarly: false }).then(
       () => {
         setErrors({});
+        console.log("submitting form", props.submit);
         props.submit();
       },
       (err) => {
@@ -52,12 +51,32 @@ export default function FormBase(props: FormBaseProps) {
     );
   };
 
+  // form ref
+  const formRef = React.useRef<HTMLFormElement>(null);
+
+  // React.useEffect(() => {
+  //   if (formRef.current) {
+  //     // get the botton that type is submit
+  //     const submitButton = formRef.current.querySelector("button[type=submit]");
+  //     if (submitButton) {
+  //       // add event listener to the button
+  //       submitButton.addEventListener("click", (e) => {
+  //         e.preventDefault();
+  //         submit();
+  //       });
+  //     }
+  //   }
+  // }, [formRef]);
+
   return (
     <form
-      // {...props}
-      onSubmit={submit}
+      ref={formRef}
+      onSubmit={(e) => {
+        e.preventDefault();
+        submit();
+      }}
     >
-      <ErrorContext.Provider value={{ errors, values: props.values }}>
+      <ErrorContext.Provider value={{ errors, values: props.values, submit }}>
         {props.children}
       </ErrorContext.Provider>
     </form>
