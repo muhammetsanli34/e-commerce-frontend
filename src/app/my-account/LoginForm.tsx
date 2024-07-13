@@ -19,7 +19,6 @@ export default function LoginForm() {
       values={formValues}
       submit={async () => {
         await authAction("login", formValues);
-        console.log("router", router);
         window.location.reload();
       }}
     >
