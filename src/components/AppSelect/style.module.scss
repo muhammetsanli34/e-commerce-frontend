@@ -1,0 +1,35 @@
+.appSelect {
+  position: relative;
+  display: inline-block;
+}
+
+.selected {
+  padding: 0.8rem;
+  border: 1px solid $--color-gray-200;
+  border-radius: $--site-radius-default;
+  cursor: pointer;
+  background-color: $--color-gray-200;
+  svg {
+    margin-left: 0.5rem;
+  }
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: max-content;
+  border: 1px solid $--color-gray-200;
+  border-top: none;
+  border-radius: 0 0 $--site-radius-default $--site-radius-default;
+  background-color: white;
+}
+
+.option {
+  padding: 0.8rem;
+  cursor: pointer;
+  &:hover {
+    background-color: $--color-gray-200;
+    color: white;
+  }
+}
