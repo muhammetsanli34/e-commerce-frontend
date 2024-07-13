@@ -1,7 +1,20 @@
-.topbar {
+@mixin headerGrid {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  a {
+    text-decoration: none;
+    color: black
+  }
+}
+
+.header,
+.topbar {
+  @include headerGrid;
+}
+
+.topbar {
   padding: 0 20px;
   font-size: $--site-header-topbar-font-size;
   ul {
@@ -13,4 +26,12 @@
       text-decoration: none;
     }
   }
+}
+
+.linkGroup {
+  display: flex;
+  gap: 0.2rem;
+  white-space: nowrap;
+  align-items: center;
+  font-size: $--site-site-font-size-sm;
 }

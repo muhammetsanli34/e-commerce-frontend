@@ -1,0 +1,13 @@
+.appSearch {
+  display: flex;
+  border-radius: $--site-radius-default;
+  border: 1px solid $--site-primary-color;
+  outline: 1px solid $--site-primary-color;
+  width: 100%;
+  input {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    outline: none;
+  }
+}

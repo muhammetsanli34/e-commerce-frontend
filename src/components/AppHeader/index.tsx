@@ -2,11 +2,14 @@
 import Link from "next/link";
 import style from "./style.module.scss";
 import TopbarSelect from "../TopbarSelect";
+import AppSearch from "../AppSearch";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping, faHeart, faUser } from "@fortawesome/free-solid-svg-icons";
 
 export default function AppHeader() {
   return (
-    <header>
-      <div className={`${style.topbar} container`}>
+    <header className="container">
+      <div className={style.topbar}>
         <ul>
           <li>
             <Link href="/">FAQ</Link>
@@ -30,9 +33,24 @@ export default function AppHeader() {
               elements={["English", "Turkish", "German", "Spanish"]}
               onChange={() => {}}
             />
-
           </li>
         </ul>
+      </div>
+      <hr />
+      <div className={style.header}>
+        <Link href={"/"}>
+          <img src={"/images/logo.png"} />
+        </Link>
+        <AppSearch />
+        <div className={style.linkGroup}>
+          <FontAwesomeIcon icon={faHeart} size="xl" />
+          <span>Wish List</span>
+        </div>
+        <Link href={"my-account"} className={style.linkGroup}>
+          <FontAwesomeIcon icon={faUser} color="black" size="xl" />
+          <span>muhammetsanli34@gmail.com</span>
+        </Link>
+        <FontAwesomeIcon icon={faCartShopping} size="xl" />
       </div>
     </header>
   );
