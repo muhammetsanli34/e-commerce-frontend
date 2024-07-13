@@ -4,7 +4,11 @@ import style from "./style.module.scss";
 import TopbarSelect from "../TopbarSelect";
 import AppSearch from "../AppSearch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faHeart, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBagShopping,
+  faHeart,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function AppHeader() {
   return (
@@ -48,9 +52,12 @@ export default function AppHeader() {
         </div>
         <Link href={"my-account"} className={style.linkGroup}>
           <FontAwesomeIcon icon={faUser} color="black" size="xl" />
-          <span>muhammetsanli34@gmail.com</span>
+          <span>
+            Welcome <br />
+            muhammetsanli34@gmail.com
+          </span>
         </Link>
-        <FontAwesomeIcon icon={faCartShopping} size="xl" />
+        <FontAwesomeIcon icon={faBagShopping} size="xl" />
       </div>
     </header>
   );
