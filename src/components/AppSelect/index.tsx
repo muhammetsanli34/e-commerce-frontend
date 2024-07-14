@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
+import { IconChevronDown } from '@tabler/icons-react';
 import style from "./style.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+
 interface AppSelectProps {
   options: string[];
   value: string;
@@ -36,7 +36,7 @@ export default function AppSelect(props: AppSelectProps) {
     <div className={style.appSelect} style={props.style}>
       <div className={style.selected} onClick={() => setIsOpen(!isOpen)}>
         {props.value}
-        <FontAwesomeIcon icon={faChevronDown} size="sm" />
+        <IconChevronDown size={20} />
       </div>
       {isOpen && (
         <div className={style.options}>

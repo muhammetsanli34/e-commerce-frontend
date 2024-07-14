@@ -1,9 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import style from "./style.module.scss";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import AppSelect from "../AppSelect";
 import categories from "@/src/mock/categories";
-
+import { IconSearch } from "@tabler/icons-react";
 export default function AppSearch() {
   return (
     <div className={style.appSearch}>
@@ -15,7 +13,7 @@ export default function AppSearch() {
       />
       <input type="text" placeholder="Search" />
       <div className={style.searchButton}>
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
+        <IconSearch stroke={2} />
       </div>
     </div>
   );
