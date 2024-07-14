@@ -1,0 +1,24 @@
+.categoryMenu {
+  background-color: white;
+  border: 1px solid $--color-gray-200;
+  border-radius: $--site-radius-default;
+  padding: 0.25rem 0;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      &:hover {
+        background-color: $--color-gray-200;
+      }
+      &.active {
+        background-color: $--color-gray-200;
+      }
+    }
+  }
+}

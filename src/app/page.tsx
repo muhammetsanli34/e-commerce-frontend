@@ -1,3 +1,7 @@
+import CategoryMenu from "../components/CategoryMenu";
+
 export default function Page() {
-  return <div></div>;
+  return <div>
+    <CategoryMenu />
+  </div>;
 }

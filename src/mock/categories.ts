@@ -1,14 +1,38 @@
 export default [
-    "All",
-    "Baby & Kids",
-    "Beauty & Personal Care",
-    "Books",
-    "Clothing, Shoes & Jewelry",
-    "Electronics",
-    "Grocery & Gourmet Food",
-    "Health, Household & Baby Care",
-    "Home & Kitchen",
-    "Movies & TV",
-    "Music, CDs & Vinyl",
-    "Pet Supplies",
-]
+  {
+    name: "Electronics",
+    icon: "ti ti-devices-pc",
+  },
+  {
+    name: "Grocery & Fruits",
+    icon: "ti ti-apple",
+  },
+  {
+    name: "Home & Furniture",
+    icon: "ti ti-armchair",
+  },
+  {
+    name: "Electronics",
+    icon: "ti ti-devices-pc",
+  },
+  {
+    name: "Grocery & Fruits",
+    icon: "ti ti-apple",
+  },
+  {
+    name: "Home & Furniture",
+    icon: "ti ti-armchair",
+  },
+  {
+    name: "Electronics",
+    icon: "ti ti-devices-pc",
+  },
+  {
+    name: "Grocery & Fruits",
+    icon: "ti ti-apple",
+  },
+  {
+    name: "Home & Furniture",
+    icon: "ti ti-armchair",
+  },
+];
