@@ -4,7 +4,7 @@
 }
 
 .selected {
-  padding: 0.8rem;
+  padding: 0.5rem;
   border: 1px solid $--color-gray-200;
   border-radius: $--site-radius-default;
   cursor: pointer;
@@ -12,6 +12,7 @@
   svg {
     margin-left: 0.5rem;
   }
+  font-size: 0.8125rem;
 }
 
 .options {

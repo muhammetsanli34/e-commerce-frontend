@@ -6,15 +6,12 @@ interface AppSelectProps {
   options: string[];
   value: string;
   onChange: (value: string) => void;
+  style?: React.CSSProperties;
 }
-export default function AppSelect({
-  options,
-  value,
-  onChange,
-}: AppSelectProps) {
+export default function AppSelect(props: AppSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const handleSelect = (option: string) => {
-    onChange(option);
+    props.onChange(option);
     setIsOpen(false);
   };
 
@@ -36,14 +33,14 @@ export default function AppSelect({
   }, []);
 
   return (
-    <div className={style.appSelect}>
+    <div className={style.appSelect} style={props.style}>
       <div className={style.selected} onClick={() => setIsOpen(!isOpen)}>
-        {value}
-        <FontAwesomeIcon icon={faChevronDown} />
+        {props.value}
+        <FontAwesomeIcon icon={faChevronDown} size="sm" />
       </div>
       {isOpen && (
         <div className={style.options}>
-          {options.map((option) => (
+          {props.options.map((option) => (
             <div
               key={option}
               className={style.option}

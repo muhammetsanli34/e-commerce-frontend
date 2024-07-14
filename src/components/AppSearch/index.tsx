@@ -11,6 +11,7 @@ export default function AppSearch() {
         options={categories}
         value="All"
         onChange={() => {}}
+        style={{ padding: "5px" }}
       />
       <input type="text" placeholder="Search" />
       <div className={style.searchButton}>
