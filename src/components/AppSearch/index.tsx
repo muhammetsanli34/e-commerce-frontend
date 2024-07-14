@@ -1,7 +1,7 @@
 import style from "./style.module.scss";
 import AppSelect from "../AppSelect";
 import categories from "@/src/mock/categories";
-import { IconSearch } from "@tabler/icons-react";
+import AppIcon from "../AppIcon";
 export default function AppSearch() {
   return (
     <div className={style.appSearch}>
@@ -13,7 +13,8 @@ export default function AppSearch() {
       />
       <input type="text" placeholder="Search" />
       <div className={style.searchButton}>
-        <IconSearch stroke={2} />
+        {/* <i className="ti ti-search"></i>{" "} */}
+        <AppIcon icon="ti ti-search" />
       </div>
     </div>
   );

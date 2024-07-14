@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { IconChevronDown } from '@tabler/icons-react';
 import style from "./style.module.scss";
+import AppIcon from "../AppIcon";
 
 interface AppSelectProps {
   options: string[];
@@ -36,7 +36,8 @@ export default function AppSelect(props: AppSelectProps) {
     <div className={style.appSelect} style={props.style}>
       <div className={style.selected} onClick={() => setIsOpen(!isOpen)}>
         {props.value}
-        <IconChevronDown size={20} />
+        {/* <i className="ti ti-chevron-down"></i>{" "} */}
+        <AppIcon icon="ti ti-chevron-down" />
       </div>
       {isOpen && (
         <div className={style.options}>

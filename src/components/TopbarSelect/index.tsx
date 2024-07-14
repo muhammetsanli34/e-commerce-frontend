@@ -1,7 +1,7 @@
 "use client";
-
+import AppIcon from "../AppIcon";
 import style from "./style.module.scss";
-import { IconChevronDown } from "@tabler/icons-react";
+
 interface TopbarSelectProps {
   elements: string[];
   onChange: (value: string) => void;
@@ -17,7 +17,7 @@ export default function TopbarSelect(props: TopbarSelectProps) {
           </option>
         ))}
       </select>
-      <IconChevronDown size={20} />
+      <AppIcon icon="ti ti-chevron-down" />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
 import AppHeader from "@/src/components/AppHeader";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,10 +22,14 @@ export default function RootLayout({
         @import
         url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
       </style>
+      <link
+        href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+        rel="stylesheet"
+      />
       <body className={inter.className}>
         <AppHeader />
         {children}
-        </body>
+      </body>
     </html>
   );
 }

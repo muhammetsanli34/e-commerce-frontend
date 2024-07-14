@@ -3,7 +3,7 @@ import Link from "next/link";
 import style from "./style.module.scss";
 import TopbarSelect from "../TopbarSelect";
 import AppSearch from "../AppSearch";
-import { IconHeart, IconShoppingBag, IconUser } from "@tabler/icons-react";
+import AppIcon from "../AppIcon";
 
 export default function AppHeader() {
   return (
@@ -42,17 +42,17 @@ export default function AppHeader() {
         </Link>
         <AppSearch />
         <div className={style.linkGroup}>
-          <IconHeart stroke={2} />
+          <AppIcon icon="ti ti-heart" size="md" />
           <span>Wish List</span>
         </div>
         <Link href={"my-account"} className={style.linkGroup}>
-          <IconUser stroke={2} />
+          <AppIcon icon="ti ti-user" size="md" />
           <span>
             Welcome <br />
             muhammetsanli34@gmail.com
           </span>
         </Link>
-        <IconShoppingBag stroke={2} size={50} />
+        <AppIcon icon="ti ti-shopping-bag" size="md" />
       </div>
     </header>
   );
