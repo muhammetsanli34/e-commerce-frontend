@@ -1,0 +1,85 @@
+// "use server";
+// import Image from "next/image";
+// import style from "./style.module.scss";
+// import Link from "next/link";
+// interface AppBannerProps {
+//   title: string;
+//   description: string;
+//   image: string;
+//   link: string;
+// }
+
+// export default function AppBanner(props: AppBannerProps) {
+//   return (
+//     <div className={style.appBanner}>
+//       <Image
+//         src={props.image}
+//         alt={props.title}
+//         className={style.appBannerImage}
+//       />
+//       <div className={style.appBannerText}>
+//         <h1>{props.title}</h1>
+//         <p>{props.description}</p>
+//         <Link href={props.link}>Shop Now</Link>
+//       </div>
+//     </div>
+//   );
+// }
+
+$--baner-color: #41543e;
+
+.appBanner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.appBannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.appBannerText {
+  color: white;
+  padding: 20px;
+  text-align: left;
+  border-radius: 10px;
+  z-index: 1;
+  margin-right: auto;
+  color: $--baner-color;
+  max-width: 500px;
+}
+
+.appBannerText h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.appBannerText p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.appBannerText a {
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  width: 100px;
+  display: block;
+
+}
+
+.appBannerText a:hover {
+  background-color: black;
+  color: white;
+  font-weight: $--site-form-button-weight;
+}

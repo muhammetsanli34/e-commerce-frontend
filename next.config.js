@@ -7,6 +7,9 @@ const nextConfig = {
     prependData: `@import "@/src/app/variables.scss";`,
 
   },
+  images: {
+    domains: ["klbtheme.com"],
+  }
 };
 
 module.exports = nextConfig;
