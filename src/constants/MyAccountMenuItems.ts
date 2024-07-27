@@ -1,13 +1,6 @@
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 
-const logout = async () => {
-  "use server";
-  cookies().delete("access_token");
-  console.log("logout");
-  redirect("/auth");
-};
-
 export default [
   {
     title: "Dashboard",
@@ -23,6 +16,6 @@ export default [
   },
   {
     title: "Logout",
-    link: "/logout"
+    link: "/logout",
   },
 ];
