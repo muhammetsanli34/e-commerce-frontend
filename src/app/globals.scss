@@ -4,6 +4,11 @@
   font-size: 16px;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+
 .container {
   max-width: 1460px;
   padding-left: 2.5rem;

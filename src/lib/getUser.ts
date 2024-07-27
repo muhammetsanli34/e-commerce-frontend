@@ -1,8 +1,12 @@
+import User from "../models/User";
+
 export default async function getUser(
   token?: string,
   cache: RequestCache = "default"
-) {
-  const url = new URL(`${process.env.NEXT_PUBLIC_API_URL}/user/get_profile_detail`);
+): Promise<User | null> {
+  const url = new URL(
+    `${process.env.NEXT_PUBLIC_API_URL}/user/get_profile_detail`
+  );
 
   const headers = new Headers();
   headers.append("Authorization", `${token}`);
@@ -16,5 +20,8 @@ export default async function getUser(
   if (!response.ok) {
     return null;
   }
-  return response.json();
+
+  const responseData = await response.json().then((data) => data.userdetail);
+
+  return responseData;
 }

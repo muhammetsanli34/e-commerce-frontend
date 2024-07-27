@@ -7,7 +7,7 @@ const middlewares = {
     const cookieStore = cookies();
     const user = await getUser(
       String(cookieStore.get("access_token")?.value),
-      "no-store"
+      "force-cache"
     );
     if (!user) {
       const url = request.nextUrl.clone();
