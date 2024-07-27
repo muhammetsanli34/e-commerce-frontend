@@ -1,10 +1,9 @@
 "use client";
-import Link from "next/link";
 import style from "./style.module.scss";
 
 interface MenuItem {
   title: string;
-  link: string;
+  link: string | (() => Promise);
 }
 
 export default function MyAccountMenu({
@@ -20,8 +19,15 @@ export default function MyAccountMenu({
           className={`${style.menuItem}
           ${location.pathname === item.link ? style.menuItemActive : ""}
           `}
+          onClick={() => {
+            if (typeof item.link === "string") {
+              location.pathname = item.link;
+            } else {
+              item.link();
+            }
+          }}
         >
-          <Link href={item.link}>{item.title}</Link>
+          <span>{item.title}</span>
         </li>
       ))}
     </ul>
