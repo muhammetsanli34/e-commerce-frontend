@@ -5,7 +5,7 @@ import LoginForm from "./LoginForm";
 import TabTitles from "@/src/components/Tab/TabTitles";
 import TabsContents from "@/src/components/Tab/TabsContents";
 
-export default function NonAuthenticated() {
+export default function Auth() {
   return (
     <div className={style.auth}>
       <Tabs>
