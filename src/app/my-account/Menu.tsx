@@ -3,7 +3,7 @@ import style from "./style.module.scss";
 
 interface MenuItem {
   title: string;
-  link: string | (() => Promise);
+  link: string | (() => Promise<void>);
 }
 
 export default function MyAccountMenu({
