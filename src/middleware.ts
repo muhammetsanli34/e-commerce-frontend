@@ -1,14 +1,10 @@
-import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import getUser from "./lib/getUser";
 
 const middlewares = {
   async checkAuth(request: NextRequest) {
-    const cookieStore = cookies();
-    const user = await getUser(
-      String(cookieStore.get("access_token")?.value),
-      "force-cache"
-    );
+    const user = await getUser("force-cache");
+    console.log("usmiddlewareser", user);
     if (!user) {
       const url = request.nextUrl.clone();
       url.pathname = "/auth";
@@ -22,8 +18,9 @@ const routes = {
 };
 
 export async function middleware(request: NextRequest) {
-  const middleware = routes[request.nextUrl.pathname];
-  if (middleware) {
-    return await middleware(request);
+  for (const [route, middleware] of Object.entries(routes)) {
+    if (request.nextUrl.pathname.startsWith(route)) {
+      return await middleware(request);
+    }
   }
 }
