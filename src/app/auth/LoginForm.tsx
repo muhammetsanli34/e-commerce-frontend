@@ -5,6 +5,7 @@ import FormBase from "@/src/components/FormBase";
 import style from "./style.module.scss";
 import authAction from "@/src/actions/auth";
 import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -18,8 +19,19 @@ export default function LoginForm() {
       rules="Login"
       values={formValues}
       submit={async () => {
-        await authAction("login", formValues);
-        window.location.reload();
+        authAction("login", formValues)
+          .then(() => {
+            router.push("/my-account");
+          })
+          .catch((error) => {
+            console.log("error", error);
+            Swal.fire({
+              title: "Error!",
+              text: error,
+              icon: "error",
+              confirmButtonText: "OK",
+            });
+          });
       }}
     >
       <span className={style.infoText}>
