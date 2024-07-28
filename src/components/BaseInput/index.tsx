@@ -11,31 +11,33 @@ export default function BaseInput(props: BaseInputProps) {
   return (
     <ErrorContext.Consumer>
       {({ errors, values }) => (
-        <div
-          className={`${style.baseInputWrapper} ${
-            errors[props.name] ? "error" : ""
-          }`}
-        >
-          <label htmlFor={props.name} className={style.label}>
-            {props.label}
-          </label>
-          <input
-            {...props}
-            value={values[props.name] ?? ""}
-            onChange={(e) => {
-              props.onChange
-                ? props.onChange(e)
-                : (values[props.name] = e.target.value);
-            }}
-            className={`${style.baseInput} ${props.className ?? ""}`}
-          />
-          <span
-            className={style.error}
-            style={{ display: errors[props.name] ? "block" : "none" }}
+        console.log("values", values),
+        (
+          <div
+            className={`${style.baseInputWrapper} ${
+              errors[props.name] ? "error" : ""
+            }`}
           >
-            {errors[props.name]}
-          </span>
-        </div>
+            <label htmlFor={props.name} className={style.label}>
+              {props.label}
+            </label>
+            <input
+              {...props}
+              onChange={(e) => {
+                props.onChange
+                  ? props.onChange(e)
+                  : (values[props.name] = e.target.value);
+              }}
+              className={`${style.baseInput} ${props.className ?? ""}`}
+            />
+            <span
+              className={style.error}
+              style={{ display: errors[props.name] ? "block" : "none" }}
+            >
+              {errors[props.name]}
+            </span>
+          </div>
+        )
       )}
     </ErrorContext.Consumer>
   );
