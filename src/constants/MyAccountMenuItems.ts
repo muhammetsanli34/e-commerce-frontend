@@ -22,6 +22,10 @@ export default [
     link: "/my-account/wishlist",
   },
   {
+    title: "Account Details",
+    link: "/my-account/account-details",
+  },
+  {
     title: "Logout",
     link: logout,
   },

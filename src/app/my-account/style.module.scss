@@ -18,16 +18,15 @@
   background-color: white;
   padding: 1rem;
   border-bottom: 1px solid #e0e0e0;
-  a {
+  span {
     color: black;
-    text-decoration: none;
     font-weight: 600;
     font-size: 0.875rem;
   }
 
   &:hover {
     cursor: pointer;
-    a {
+    span {
       color: #0070f3;
     }
   }
@@ -36,12 +35,16 @@
 .menuItemActive {
   color: white;
   background-color: black;
-  a {
+  span {
     color: white;
   }
   &:hover {
-    a {
+    span {
       color: white;
     }
   }
+}
+
+.header {
+  font-size: 1.5rem;
 }

@@ -1,9 +1,12 @@
+"use server";
+
+import { cookies } from "next/headers";
 import User from "../models/User";
 
 export default async function getUser(
-  token?: string,
   cache: RequestCache = "default"
 ): Promise<User | null> {
+  const token = cookies().get("access_token")?.value;
   const url = new URL(
     `${process.env.NEXT_PUBLIC_API_URL}/user/get_profile_detail`
   );

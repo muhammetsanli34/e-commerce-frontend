@@ -1,0 +1,15 @@
+.submitBtn {
+  background-color: $--color-gray-200;
+  color: black;
+  border: 1px solid transparent;
+  border-radius: $--site-radius-default;
+
+  transition: all 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  &:hover {
+    background-color: $--color-gray-300;
+  }
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: $--site-form-button-height-base;
+  font-weight: $--site-form-button-weight;
+}

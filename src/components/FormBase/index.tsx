@@ -51,22 +51,7 @@ export default function FormBase(props: FormBaseProps) {
     );
   };
 
-  // form ref
   const formRef = React.useRef<HTMLFormElement>(null);
-
-  // React.useEffect(() => {
-  //   if (formRef.current) {
-  //     // get the botton that type is submit
-  //     const submitButton = formRef.current.querySelector("button[type=submit]");
-  //     if (submitButton) {
-  //       // add event listener to the button
-  //       submitButton.addEventListener("click", (e) => {
-  //         e.preventDefault();
-  //         submit();
-  //       });
-  //     }
-  //   }
-  // }, [formRef]);
 
   return (
     <form
