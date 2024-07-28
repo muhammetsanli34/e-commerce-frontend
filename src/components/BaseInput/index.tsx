@@ -21,6 +21,7 @@ export default function BaseInput(props: BaseInputProps) {
           </label>
           <input
             {...props}
+            value={values[props.name] ?? ""}
             onChange={(e) => {
               props.onChange
                 ? props.onChange(e)
