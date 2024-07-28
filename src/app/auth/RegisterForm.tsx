@@ -24,16 +24,18 @@ export default function RegisterForm() {
       rules="Register"
       values={formValues}
       submit={async () => {
-        authAction("register", formValues).then(() => {
-          router.push("/my-account")
-        }).catch((error) => {
-          Swal.fire({
-            title: "Error!",
-            text: error,
-            icon: "error",
-            confirmButtonText: "OK",
+        authAction("register", formValues)
+          .then(() => {
+            router.push("/my-account");
+          })
+          .catch((error) => {
+            Swal.fire({
+              title: "Error!",
+              text: error,
+              icon: "error",
+              confirmButtonText: "OK",
+            });
           });
-        }
       }}
     >
       <span className={style.infoText}>
