@@ -19,8 +19,8 @@ export default async function authAction(
     );
     const data = await response.json();
     if (response.ok) {
-      cookies().set("access_token", data.token);
-      return Promise.resolve(data);
+      cookies().set("access_token", data.access_token);
+      return { data };
     } else {
       return Promise.reject(new Error(data.detail || "Something went wrong"));
     }

@@ -19,25 +19,23 @@ export default function RegisterForm() {
     phone_number: "",
   };
 
+  const submit = async () => {
+    try {
+      console.log("formValues", formValues);
+      const { data } = await authAction("register", formValues);
+      console.log("data", data);
+      router.push("/my-account");
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: error as string,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
+  };
   return (
-    <FormBase
-      rules="Register"
-      values={formValues}
-      submit={async () => {
-        authAction("register", formValues)
-          .then(() => {
-            router.push("/my-account");
-          })
-          .catch((error) => {
-            Swal.fire({
-              title: "Error!",
-              text: error,
-              icon: "error",
-              confirmButtonText: "OK",
-            });
-          });
-      }}
-    >
+    <FormBase rules="Register" values={formValues} submit={submit}>
       <span className={style.infoText}>
         There are many advantages to creating an account: the payment process is
         faster, shipment tracking is possible and much more.

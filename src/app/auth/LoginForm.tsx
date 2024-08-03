@@ -14,26 +14,24 @@ export default function LoginForm() {
     password: "",
   };
 
+  const submit = async () => {
+    try {
+      console.log("formValues", formValues);
+      const { data } = await authAction("login", formValues);
+      console.log("data", data);
+      router.push("/my-account");
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: error as string,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
+  };
+
   return (
-    <FormBase
-      rules="Login"
-      values={formValues}
-      submit={async () => {
-        authAction("login", formValues)
-          .then(() => {
-            router.push("/my-account");
-          })
-          .catch((error) => {
-            console.log("error", error);
-            Swal.fire({
-              title: "Error!",
-              text: error,
-              icon: "error",
-              confirmButtonText: "OK",
-            });
-          });
-      }}
-    >
+    <FormBase rules="Login" values={formValues} submit={submit}>
       <span className={style.infoText}>
         If you have an account, sign in with your username or email address.
       </span>

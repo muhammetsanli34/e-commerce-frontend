@@ -3,12 +3,17 @@ import getUser from "./lib/getUser";
 
 const middlewares = {
   async checkAuth(request: NextRequest) {
-    const user = await getUser("force-cache");
-    console.log("usmiddlewareser", user);
+    const user = await getUser("no-cache");
+    console.log("userrrrr", user);
     if (!user) {
       const url = request.nextUrl.clone();
       url.pathname = "/auth";
-      return NextResponse.rewrite(url.toString());
+      return NextResponse.rewrite(url.toString(), {
+        status: 302,
+        headers: {
+          Location: url.toString(),
+        },
+      });
     }
   },
 };
