@@ -13,7 +13,7 @@ export default async function getUser(
   );
 
   const headers = new Headers();
-  headers.append("Authorization", `${token}`);
+  headers.append("Authorization", `Bearer ${token}`);
 
   const response = await fetch(url.href, {
     method: "GET",
