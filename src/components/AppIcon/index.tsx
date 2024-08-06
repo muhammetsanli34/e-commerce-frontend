@@ -7,11 +7,16 @@ const SizeMap = {
   xl: "3rem",
 };
 
-interface AppIconProps {
+interface AppIconProps extends React.HTMLAttributes<HTMLElement> {
   icon: string;
   size?: IconSize;
 }
 
-export default function AppIcon({ icon, size = "md" }: AppIconProps) {
-  return <i className={icon} style={{ fontSize: SizeMap[size] }}></i>;
+export default function AppIcon(props: AppIconProps) {
+  return (
+    <i
+      className={`${props.icon} ${props.className}`}
+      style={{ fontSize: props.size ? SizeMap[props.size] : SizeMap.md }}
+    ></i>
+  );
 }
