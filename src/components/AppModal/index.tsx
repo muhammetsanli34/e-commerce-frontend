@@ -14,6 +14,7 @@ export default function AppModal({
   children,
 }: AppModalProps) {
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    console.log("e.target", e.target);
     if (e.target.getAttribute("data-action") === "close") {
       onClose();
     }
@@ -22,9 +23,13 @@ export default function AppModal({
   return (
     <>
       {showModal && (
-        <div className={style.appModal} onClick={handleClick}>
-          <div className={style.appModalOverlay} data-action="close">
-            <div className={style.appModalClose} onClick={() => onClose()}>
+        <div
+          className={style.appModal}
+          onClick={handleClick}
+          data-action="close"
+        >
+          <div className={style.appModalOverlay}>
+            <div className={style.appModalClose} data-action="close">
               X
             </div>
             <div className={style.appModalContent}>{children}</div>

@@ -12,15 +12,30 @@
 }
 
 .appModalOverlay {
-  
+  top: 50%;
+  left: 50%;
+  overflow: auto;
+  max-height: 80vh;
+  position: absolute;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 70%;
+  }
+  @media (min-width: 1024px) {
+    width: 60%;
+  }
 }
 
 .appModalContent {
-  width: 50%;
-  background-color: white;
+  gap: 20px;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  
 }
 
 .appModalClose {

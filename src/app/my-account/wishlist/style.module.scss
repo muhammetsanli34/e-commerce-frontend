@@ -16,6 +16,8 @@
   position: relative;
   transition: all 0.3s;
   padding: 1.1rem;
+  text-decoration: none;
+  color: inherit;
 }
 
 .wishListCard:hover {
@@ -46,4 +48,34 @@
   font-size: 16px;
   font-weight: 500;
   color: #333;
+}
+
+// <div className={styles.wishlistItems}>
+// {showingWishlist?.whislist_item_detail.map((item) => (
+//   <div key={item.listing_title} className={styles.wishlistItem}>
+//     <img
+//       src={`
+//       ${process.env.NEXT_PUBLIC_API_URL}/static/${item.listing_images[0]}
+//     `}
+//     />
+//     <h3>{item.listing_title}</h3>
+//     <p>{item.listing_description}</p>
+//     <p>{item.listing_price}</p>
+//   </div>
+// ))}
+// </div>
+
+.wishlistItems {
+  // display: table;
+  th {
+    border-bottom: 1px solid $--color-slate-200;
+    text-align: left;
+    padding: 0.5rem 2.5rem;
+  }
+
+  td {
+    border-bottom: 1px solid $--color-slate-200;
+    text-align: left;
+    padding: 0.5rem 2.5rem;
+  }
 }
