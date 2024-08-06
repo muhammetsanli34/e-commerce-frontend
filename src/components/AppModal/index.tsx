@@ -14,7 +14,6 @@ export default function AppModal({
   children,
 }: AppModalProps) {
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    console.log("e.target", e.target);
     if (e.target.getAttribute("data-action") === "close") {
       onClose();
     }

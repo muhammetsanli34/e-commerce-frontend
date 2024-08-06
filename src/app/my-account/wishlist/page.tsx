@@ -44,7 +44,6 @@ export default function Wishlist() {
       }
     );
     const data = await response.json();
-    console.log("data", data.whislists);
     setWishlist(data.whislists);
   };
 

@@ -38,7 +38,6 @@ export default function FormBase(props: FormBaseProps) {
     Rules.validate(props.values, { abortEarly: false }).then(
       () => {
         setErrors({});
-        console.log("submitting form", props.submit);
         props.submit();
       },
       (err) => {

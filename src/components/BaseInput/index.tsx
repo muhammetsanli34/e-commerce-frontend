@@ -11,7 +11,6 @@ export default function BaseInput(props: BaseInputProps) {
   return (
     <ErrorContext.Consumer>
       {({ errors, values }) => (
-        console.log("values", values),
         (
           <div
             className={`${style.baseInputWrapper} ${

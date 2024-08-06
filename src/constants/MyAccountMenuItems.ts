@@ -4,7 +4,6 @@ import { redirect } from "next/navigation";
 const logout = async () => {
   "use server";
   cookies().delete("access_token");
-  console.log("logout");
   redirect("/auth");
 };
 

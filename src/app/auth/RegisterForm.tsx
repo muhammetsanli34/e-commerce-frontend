@@ -21,9 +21,7 @@ export default function RegisterForm() {
 
   const submit = async () => {
     try {
-      console.log("formValues", formValues);
       const { data } = await authAction("register", formValues);
-      console.log("data", data);
       router.push("/my-account");
     } catch (error) {
       Swal.fire({

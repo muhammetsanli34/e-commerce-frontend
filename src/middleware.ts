@@ -4,7 +4,6 @@ import getUser from "./lib/getUser";
 const middlewares = {
   async checkAuth(request: NextRequest) {
     const user = await getUser("no-cache");
-    console.log("userrrrr", user);
     if (!user) {
       const url = request.nextUrl.clone();
       url.pathname = "/auth";

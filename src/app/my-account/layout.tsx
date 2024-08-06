@@ -11,7 +11,6 @@ export default async function MyAccountLayout({
 }) {
   // use the cached data
   const user = await getUser("force-cache");
-  console.log("menuItems", menuItems);
   return (
     <div className="container">
       <div className={style.layoutGrid}>

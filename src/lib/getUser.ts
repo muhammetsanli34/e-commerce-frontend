@@ -7,7 +7,6 @@ export default async function getUser(
   cache: RequestCache = "default"
 ): Promise<User | null> {
   const token = cookies().get("access_token")?.value;
-  console.log("tokennnnn", token);
   const url = new URL(
     `${process.env.NEXT_PUBLIC_API_URL}/user/get_profile_detail`
   );
