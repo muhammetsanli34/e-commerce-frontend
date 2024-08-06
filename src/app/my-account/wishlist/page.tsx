@@ -102,6 +102,12 @@ export default function Wishlist() {
     setShowingWishlist(null);
   };
 
+  const handleModal = (wishlist: WishlistItem) => {
+    if (wishlist.whislist_item_detail?.length > 0) {
+      setShowingWishlist(wishlist);
+    }
+  };
+
   return (
     <>
       <div className={styles.wishListContainer}>
@@ -109,7 +115,7 @@ export default function Wishlist() {
           <div
             key={item.whislist_id}
             className={styles.wishListCard}
-            onClick={() => setShowingWishlist(item)}
+            onClick={() => handleModal(item)}
           >
             {/* <img
               src={`${process.env.NEXT_PUBLIC_API_URL}/static/${item?.whislist_item_detail[0]?.listing_images[0]}`}
