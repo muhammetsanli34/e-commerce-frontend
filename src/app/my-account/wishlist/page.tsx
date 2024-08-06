@@ -11,6 +11,7 @@ interface WishlistItem {
   whislist_id: string;
   whislist_title: string;
   whislist_item_detail: {
+    listing_id: string;
     listing_categories: string[];
     listing_description: string;
     listing_price: number;
