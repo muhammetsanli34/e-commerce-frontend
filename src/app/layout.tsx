@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.scss";
+import "../style/globals.scss";
 import AppHeader from "@/src/components/AppHeader";
 import Link from "next/link";
 

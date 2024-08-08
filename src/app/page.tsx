@@ -1,5 +1,6 @@
 import AppBanner from "../components/AppBanner";
 import CategoryMenu from "../components/CategoryMenu";
+import Campaigns from "../sections/home/campaigns";
 
 export default function Page() {
   return (
@@ -17,6 +18,7 @@ export default function Page() {
         image="https://klbtheme.com/bevesi/wp-content/uploads/2024/04/slider-02.jpg"
         link="/"
       />
+      <Campaigns />
     </div>
   );
 }

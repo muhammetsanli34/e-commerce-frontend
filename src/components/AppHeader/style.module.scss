@@ -5,7 +5,7 @@
   gap: 1.5rem;
   a {
     text-decoration: none;
-    color: black
+    color: black;
   }
 }
 
@@ -34,4 +34,21 @@
   white-space: nowrap;
   align-items: center;
   font-size: $--site-site-font-size-sm;
+  @include breakpoint(medium) {
+    display: none;
+  }
+}
+
+.search {
+  width: 100%;
+  @include breakpoint(medium) {
+    display: none;
+  }
+}
+
+.menuIcon {
+  display: none;
+  @include breakpoint(medium) {
+    display: block;
+  }
 }

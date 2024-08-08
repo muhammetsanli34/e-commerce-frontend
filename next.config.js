@@ -8,7 +8,7 @@ const nextConfig = {
 
   },
   images: {
-    domains: ["klbtheme.com"],
+    domains: ["klbtheme.com", "0.0.0.0"],
   },
 };
 

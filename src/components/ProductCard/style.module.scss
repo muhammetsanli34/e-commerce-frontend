@@ -1,0 +1,46 @@
+.productCard {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 1rem;
+  &:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
+  }
+}
+
+.wishlistIcon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+  color: #f44336;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.productPrice {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.productName {
+  font-size: 1rem;
+}
+
+.productOwner {
+  span {
+    color: $--color-slate-400;
+    font-size: 0.8125rem;
+  }
+  a {
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+  }
+}
