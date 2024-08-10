@@ -13,7 +13,6 @@ export default function AppHeader() {
 
   useEffect(() => {
     getUser("force-cache").then((user) => {
-      console.log("user", user);
       setUser(user);
     });
   }, []);
