@@ -9,7 +9,7 @@ interface AppBannerProps {
   link: string;
 }
 
-export default async function asAppBanner(props: AppBannerProps) {
+export default async function AppBanner(props: AppBannerProps) {
   return (
     <div className={style.appBanner}>
       <Image

@@ -15,7 +15,7 @@ export default function ProductCard(props: ProductCardProps) {
       <AppSlider images={props.product.listing_images} />
       <div className={style.productInfo}>
         <span className={style.productPrice}>
-          {props.product.listing_price}
+          {props.product.listing_price}$
         </span>
         <Link
           href={`/product/${props.product.listing_id}`}

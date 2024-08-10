@@ -15,6 +15,7 @@
   right: 0.5rem;
   cursor: pointer;
   color: #f44336;
+  z-index: 1;
 }
 
 .productInfo {
@@ -26,11 +27,14 @@
 
 .productPrice {
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  color: $--color-green-600;
 }
 
 .productName {
-  font-size: 1rem;
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
 }
 
 .productOwner {
