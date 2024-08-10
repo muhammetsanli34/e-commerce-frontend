@@ -1,6 +1,6 @@
 "use server";
 
-import getUser from "@/src/lib/getUser";
+import getUser from "@/src/api/getUser";
 import style from "./style.module.scss";
 import menuItems from "@/src/constants/MyAccountMenuItems";
 import Menu from "./Menu";

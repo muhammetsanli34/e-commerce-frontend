@@ -4,7 +4,7 @@ import style from "./style.module.scss";
 import TopbarSelect from "../TopbarSelect";
 import AppSearch from "../AppSearch";
 import AppIcon from "../AppIcon";
-import getUser from "@/src/lib/getUser";
+import getUser from "@/src/api/getUser";
 import { useEffect, useState } from "react";
 import User from "@/src/models/User";
 

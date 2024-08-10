@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import getUser from "./lib/getUser";
+import getUser from "./api/getUser";
 
 const middlewares = {
   async checkAuth(request: NextRequest) {
