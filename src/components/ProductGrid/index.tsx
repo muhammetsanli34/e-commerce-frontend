@@ -3,7 +3,7 @@ import ProductCard from "../ProductCard";
 
 export default function ProductGrid(props: {
   itemPerRow: number;
-  products: Array<Product>;
+  children?: React.ReactNode;
 }) {
   return (
     <div
@@ -13,9 +13,7 @@ export default function ProductGrid(props: {
         gap: "1rem",
       }}
     >
-      {props?.products?.map((product) => (
-        <ProductCard product={product} />
-      ))}
+      {props.children}
     </div>
   );
 }

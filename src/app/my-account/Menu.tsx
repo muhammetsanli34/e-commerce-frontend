@@ -17,11 +17,11 @@ export default function MyAccountMenu({
         <li
           key={item.title}
           className={`${style.menuItem}
-          ${location.pathname === item.link ? style.menuItemActive : ""}
+          ${window.location?.pathname === item.link ? style.menuItemActive : ""}
           `}
           onClick={() => {
             if (typeof item.link === "string") {
-              location.pathname = item.link;
+              window.location.pathname = item.link;
             } else {
               item.link();
             }

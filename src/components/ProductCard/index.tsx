@@ -1,17 +1,19 @@
 import Product from "@/src/models/Product";
 import style from "./style.module.scss";
-import AppIcon from "../AppIcon";
 import AppSlider from "../AppSlider";
 import Link from "next/link";
+import SaveWishList from "./SaveWishlist";
+import WishlistItem from "@/src/models/WishlistItem";
 
 interface ProductCardProps {
   product: Product;
+  wishlists: Array<WishlistItem>;
 }
 
 export default function ProductCard(props: ProductCardProps) {
   return (
     <div className={style.productCard}>
-      <AppIcon icon="ti ti-heart" size="md" className={style.wishlistIcon} />
+      <SaveWishList product={props.product} wishlists={props.wishlists} />
       <AppSlider images={props.product.listing_images} />
       <div className={style.productInfo}>
         <span className={style.productPrice}>

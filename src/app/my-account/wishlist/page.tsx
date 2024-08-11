@@ -3,22 +3,12 @@
 import { useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import AppModal from "@/src/components/AppModal";
-import AppButton from "@/src/components/AppModal/AppButton";
+import AppButton from "@/src/components/AppButton";
 import Swal from "sweetalert2";
-
-interface WishlistItem {
-  whislist_context: string;
-  whislist_id: string;
-  whislist_title: string;
-  whislist_item_detail: {
-    listing_id: string;
-    listing_categories: string[];
-    listing_description: string;
-    listing_price: number;
-    listing_title: string;
-    listing_images: string[];
-  }[];
-}
+import WishlistItem from "@/src/models/WishlistItem";
+import getWishlists from "@/src/api/wishlist";
+import FormBase from "@/src/components/FormBase";
+import BaseInput from "@/src/components/BaseInput";
 
 export default function Wishlist() {
   const [wishlist, setWishlist] = useState<WishlistItem[]>([]);
@@ -28,24 +18,8 @@ export default function Wishlist() {
   );
 
   const fetchWishlist = async () => {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/get_whislists`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${
-            document.cookie
-              ?.split("; ")
-              ?.find((row: string) => row.startsWith("access_token="))
-              ?.split("=")[1]
-          }`,
-          accept: "application/json",
-          "accept-language": "en-US,en;q=0.9,tr-T<R;q=0.8,tr;q=0.7",
-        },
-      }
-    );
-    const data = await response.json();
-    setWishlist(data.whislists);
+    const wishlists = await getWishlists();
+    setWishlist(wishlists);
   };
 
   useEffect(() => {
@@ -53,16 +27,16 @@ export default function Wishlist() {
   }, []);
 
   const deleteItemFromWishlist = async (
-    whislist_id: string,
+    wishlist_id: string,
     listing_id: string
   ) => {
     const selectedWishlist = wishlist.find(
-      (item) => item.whislist_id === whislist_id
+      (item) => item.wishlist_id === wishlist_id
     );
     const payload = {
-      whislist_title: selectedWishlist?.whislist_title,
-      whislist_context: selectedWishlist?.whislist_context,
-      whislist_item_ids: selectedWishlist?.whislist_item_detail.reduce(
+      wishlist_title: selectedWishlist?.wishlist_title,
+      wishlist_context: selectedWishlist?.wishlist_context,
+      wishlist_item_ids: selectedWishlist?.wishlist_item_detail.reduce(
         (acc, item) => {
           if (item.listing_id !== listing_id) {
             acc.push(item.listing_id);
@@ -74,7 +48,7 @@ export default function Wishlist() {
     };
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/update_wishlist/${whislist_id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/user/update_wishlist/${wishlist_id}`,
       {
         method: "PUT",
         headers: {
@@ -104,32 +78,78 @@ export default function Wishlist() {
   };
 
   const handleModal = (wishlist: WishlistItem) => {
-    if (wishlist.whislist_item_detail?.length > 0) {
+    if (wishlist.wishlist_item_detail?.length > 0) {
       setShowingWishlist(wishlist);
     }
+  };
+
+  const createNewWishlist = async () => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/user/create_wishlist`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${
+            document.cookie
+              ?.split("; ")
+              ?.find((row: string) => row.startsWith("access_token="))
+              ?.split("=")[1]
+          }`,
+          accept: "application/json",
+          "accept-language": "en-US,en;q=0.9,tr-TR;q=0.8,tr;q=0.7",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      }
+    );
+
+    const data = await response.json();
+    Swal.fire({
+      title: response.status === 200 ? "Success" : "Error",
+      text: data.message,
+      icon: response.status === 200 ? "success" : "error",
+      confirmButtonText: "OK",
+    });
+    fetchWishlist();
+  };
+
+  const formValues = {
+    wishlist_title: "",
+    wishlist_context: "",
+    wishlist_item_ids: [],
   };
 
   return (
     <>
       <div className={styles.wishListContainer}>
-        {wishlist.map((item) => (
+        {wishlist?.map((item) => (
           <div
-            key={item.whislist_id}
+            key={item.wishlist_id}
             className={styles.wishListCard}
             onClick={() => handleModal(item)}
           >
-            {/* <img
-              src={`${process.env.NEXT_PUBLIC_API_URL}/static/${item?.whislist_item_detail[0]?.listing_images[0]}`}
-            /> */}
-            {item.whislist_item_detail[0] && (
+            {item.wishlist_item_detail[0] && (
               <img
-                src={`${process.env.NEXT_PUBLIC_API_URL}/static/${item.whislist_item_detail[0].listing_images[0]}`}
+                src={`${process.env.NEXT_PUBLIC_API_URL}/static/${item.wishlist_item_detail[0].listing_images[0]}`}
               />
             )}
-            <h3>{item.whislist_title}</h3>
-            <p>{item.whislist_context}</p>
+            <h3>{item.wishlist_title}</h3>
+            <p>{item.wishlist_context}</p>
           </div>
         ))}
+        <AppButton variant="primary">Create New Wishlist</AppButton>
+        <FormBase
+          rules="Wishlist"
+          values={formValues}
+          submit={createNewWishlist}
+        >
+          <BaseInput type="text" name="wishlist_title" label="Title*" />
+          <BaseInput type="text" name="wishlist_context" label="Context*" />
+          <AppButton variant="primary" type="submit">
+            {" "}
+            Create{" "}
+          </AppButton>
+        </FormBase>
       </div>
       <AppModal
         onClose={() => setShowingWishlist(null)}
@@ -145,7 +165,7 @@ export default function Wishlist() {
             </tr>
           </thead>
           <tbody>
-            {showingWishlist?.whislist_item_detail.map((item) => (
+            {showingWishlist?.wishlist_item_detail.map((item) => (
               <tr key={item.listing_title} className={styles.wishlistItem}>
                 <td>
                   <img
@@ -162,7 +182,7 @@ export default function Wishlist() {
                     variant="danger"
                     onClick={() =>
                       deleteItemFromWishlist(
-                        showingWishlist.whislist_id,
+                        showingWishlist.wishlist_id,
                         item.listing_id
                       )
                     }
