@@ -1,12 +1,12 @@
 .productCard {
   display: flex;
   flex-direction: column;
-  // position: relative;
   padding: 1rem;
   &:hover {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     border: 1px solid #f0f0f0;
   }
+  gap: 0.5rem;
 }
 
 .wishlistIcon {
@@ -47,4 +47,14 @@
     text-decoration: none;
     color: black;
   }
+}
+
+.productActions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.addToCart {
+  width: 50%;
 }

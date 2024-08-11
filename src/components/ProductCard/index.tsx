@@ -4,6 +4,8 @@ import AppSlider from "../AppSlider";
 import Link from "next/link";
 import SaveWishList from "./SaveWishlist";
 import WishlistItem from "@/src/models/WishlistItem";
+import AppQuantity from "../AppQuantity";
+import AppButton from "../AppButton";
 
 interface ProductCardProps {
   product: Product;
@@ -34,6 +36,27 @@ export default function ProductCard(props: ProductCardProps) {
             Test
           </Link>
         </div>
+      </div>
+      <div className={style.productActions}>
+        <AppQuantity
+          quantity={1}
+          setQuantity={async (quantity: number) => {
+            "use server";
+            console.log(quantity);
+          }}
+        />
+        <AppButton
+          backgroundColor="white"
+          color="black"
+          borderColor="black"
+          borderRadius="5px"
+          onHoverColor="white"
+          onHoverBackgroundColor="black"
+          width="100%"
+          height="2rem"
+        >
+          Add to Cart
+        </AppButton>
       </div>
     </div>
   );

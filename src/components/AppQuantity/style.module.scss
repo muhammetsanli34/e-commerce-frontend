@@ -1,0 +1,22 @@
+.quantity {
+  border: 1px solid black;
+  border-radius: $--site-radius-default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quantityButton {
+  font-size: 1.5rem;
+  font-weight: 200;
+  min-width: 1.8rem;
+  min-height: 1.8rem;
+  text-align: center;
+}
+
+.quantityInput {
+  text-align: center;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
+  width: 2rem;
+}
