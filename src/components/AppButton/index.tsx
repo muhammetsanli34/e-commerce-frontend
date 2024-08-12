@@ -14,6 +14,7 @@ interface AppButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   borderRadius?: string;
   width?: string;
   height?: string;
+  padding?: string;
 }
 
 export default function AppButton({ children, ...props }: AppButtonProps) {
@@ -24,8 +25,8 @@ export default function AppButton({ children, ...props }: AppButtonProps) {
     borderRadius: props.borderRadius || "5px",
     border: "1px solid",
     width: props.width || "",
-    height: props.height || "",
-    padding: "10px",
+    height: props.height || "null",
+    padding: props.padding || "",
   });
 
   return (
