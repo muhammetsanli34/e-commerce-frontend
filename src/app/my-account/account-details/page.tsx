@@ -1,7 +1,7 @@
 "use client";
 import BaseInput from "@/src/components/BaseInput";
 import FormBase from "@/src/components/FormBase";
-import getUser from "@/src/api/getUser";
+import getUser from "@/src/actions/getUser";
 import User from "@/src/models/User";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";

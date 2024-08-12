@@ -6,7 +6,7 @@ import AppModal from "@/src/components/AppModal";
 import AppButton from "@/src/components/AppButton";
 import Swal from "sweetalert2";
 import WishlistItem from "@/src/models/WishlistItem";
-import getWishlists from "@/src/api/wishlist";
+import getWishlists from "@/src/actions/wishlist";
 import FormBase from "@/src/components/FormBase";
 import BaseInput from "@/src/components/BaseInput";
 

@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import AppIcon from "../AppIcon";
-import getUser from "@/src/api/getUser";
+import getUser from "@/src/actions/getUser";
 import Swal from "sweetalert2";
 import style from "./style.module.scss";
 import { useEffect, useState } from "react";

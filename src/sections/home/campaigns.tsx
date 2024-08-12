@@ -1,4 +1,4 @@
-import getWishlists from "@/src/api/wishlist";
+import getWishlists from "@/src/actions/wishlist";
 import ProductCard from "@/src/components/ProductCard";
 import ProductGrid from "@/src/components/ProductGrid";
 import Product from "@/src/models/Product";
