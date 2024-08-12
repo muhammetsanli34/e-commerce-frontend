@@ -1,0 +1,57 @@
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.items {
+  width: 100%;
+  th {
+    border-bottom: 1px solid $--color-slate-200;
+    text-align: left;
+    padding: 0.5rem 2.5rem;
+  }
+  td {
+    border-bottom: 1px solid $--color-slate-200;
+    text-align: left;
+    padding: 0.5rem 2.5rem;
+  }
+  flex: 3;
+}
+
+.totals {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid $--color-slate-200;
+  border-radius: $--site-radius-default;
+  padding: 1.25rem;
+  th,
+  td {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    border-bottom: 1px solid $--color-slate-200;
+  }
+  td {
+    text-align: right;
+    width: 100%;
+    font-size: 0.775rem;
+  }
+  th {
+    color: $--color-slate-500;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+}
+
+.totalsTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.productName {
+  font-weight: 600;
+}

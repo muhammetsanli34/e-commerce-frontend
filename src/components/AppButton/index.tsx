@@ -32,7 +32,7 @@ export default function AppButton({ children, ...props }: AppButtonProps) {
   return (
     <button
       onMouseOver={() => {
-        if (props.onHoverColor) {
+        if (props.onHoverColor || props.onHoverBackgroundColor) {
           setCustomStyle({
             ...customStyle,
             color: props.onHoverColor,
