@@ -60,14 +60,7 @@
 }
 
 .wishlistItems {
-  // display: table;
-  th {
-    border-bottom: 1px solid $--color-slate-200;
-    text-align: left;
-    padding: 0.5rem 2.5rem;
-  }
-
-  td {
+  th, td {
     border-bottom: 1px solid $--color-slate-200;
     text-align: left;
     padding: 0.5rem 2.5rem;
