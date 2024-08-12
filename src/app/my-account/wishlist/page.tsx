@@ -122,6 +122,19 @@ export default function Wishlist() {
   return (
     <>
       <div className={styles.wishListContainer}>
+        <FormBase
+          rules="Wishlist"
+          values={formValues}
+          submit={createNewWishlist}
+          className={styles.wishListForm}
+        >
+          <BaseInput type="text" name="wishlist_title" label="Title*" />
+          <BaseInput type="text" name="wishlist_context" label="Context*" />
+          <AppButton variant="primary" type="submit">
+            {" "}
+            Create{" "}
+          </AppButton>
+        </FormBase>
         {wishlist?.map((item) => (
           <div
             key={item.wishlist_id}
@@ -137,19 +150,6 @@ export default function Wishlist() {
             <p>{item.wishlist_context}</p>
           </div>
         ))}
-        <AppButton variant="primary">Create New Wishlist</AppButton>
-        <FormBase
-          rules="Wishlist"
-          values={formValues}
-          submit={createNewWishlist}
-        >
-          <BaseInput type="text" name="wishlist_title" label="Title*" />
-          <BaseInput type="text" name="wishlist_context" label="Context*" />
-          <AppButton variant="primary" type="submit">
-            {" "}
-            Create{" "}
-          </AppButton>
-        </FormBase>
       </div>
       <AppModal
         onClose={() => setShowingWishlist(null)}

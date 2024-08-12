@@ -8,6 +8,7 @@ interface FormBaseProps {
   children: React.ReactNode;
   submit: () => void;
   values: any;
+  className?: string;
 }
 
 export const ErrorContext = React.createContext<any>({});
@@ -59,6 +60,7 @@ export default function FormBase(props: FormBaseProps) {
         e.preventDefault();
         submit();
       }}
+      className={props.className}
     >
       <ErrorContext.Provider value={{ errors, values: props.values, submit }}>
         {props.children}

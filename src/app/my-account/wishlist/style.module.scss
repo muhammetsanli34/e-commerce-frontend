@@ -4,6 +4,8 @@
   margin-top: 20px;
   margin-bottom: 20px;
   gap: 2rem;
+  max-height: 800px;
+  overflow-y: auto;
 }
 
 .wishListCard {
@@ -50,20 +52,12 @@
   color: #333;
 }
 
-// <div className={styles.wishlistItems}>
-// {showingWishlist?.whislist_item_detail.map((item) => (
-//   <div key={item.listing_title} className={styles.wishlistItem}>
-//     <img
-//       src={`
-//       ${process.env.NEXT_PUBLIC_API_URL}/static/${item.listing_images[0]}
-//     `}
-//     />
-//     <h3>{item.listing_title}</h3>
-//     <p>{item.listing_description}</p>
-//     <p>{item.listing_price}</p>
-//   </div>
-// ))}
-// </div>
+.wishListForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 30%;
+}
 
 .wishlistItems {
   // display: table;

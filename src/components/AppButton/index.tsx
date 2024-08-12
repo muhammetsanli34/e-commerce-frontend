@@ -23,8 +23,9 @@ export default function AppButton({ children, ...props }: AppButtonProps) {
     borderColor: props.borderColor || "black",
     borderRadius: props.borderRadius || "5px",
     border: "1px solid",
-    width: props.width || "auto",
-    height: props.height || "auto",
+    width: props.width || "",
+    height: props.height || "",
+    padding: "10px",
   });
 
   return (
