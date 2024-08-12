@@ -19,4 +19,10 @@
   border: none;
   background-color: transparent;
   width: 2rem;
+  // hide arrows
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
