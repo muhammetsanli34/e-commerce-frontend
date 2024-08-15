@@ -15,6 +15,7 @@ interface AppIconProps extends React.HTMLAttributes<HTMLElement> {
 export default function AppIcon(props: AppIconProps) {
   return (
     <i
+      {...props}
       className={`${props.icon} ${props.className}`}
       style={{ fontSize: props.size ? SizeMap[props.size] : SizeMap.md }}
     ></i>
